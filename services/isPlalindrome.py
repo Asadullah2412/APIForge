@@ -4,10 +4,10 @@ def isPlaindrome(word:str):
     if word.isspace() == False:
 
         return {
-            "isPlaindrome" : (word == word[::-1])
+            "isPlaindrome" : (word.lower() == word[::-1].lower())
         }
     else:
-        return status.HTTP_400_BAD_REQUEST
+        raise ValueError("invalid input")
 
-x = isPlaindrome(word="  ")
-print(x)
+# x = isPlaindrome(word="  ")
+# print(x)

@@ -57,11 +57,11 @@ def get_weather(city:str):
     if city.title() in city_detailed_weather:
         return {"weather": city_detailed_weather[city.title()]}
     else:
-        return  status.HTTP_404_NOT_FOUND
+        raise ValueError("City not found")
 
 
 
-temp = get_weather(city="new york")
-print(temp)
+# temp = get_weather(city="new york")
+# print(temp)
 
     

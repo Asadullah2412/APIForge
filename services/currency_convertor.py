@@ -17,7 +17,7 @@ def currency_convertor(value:float,currency:str):
             QAR_value = currencies_to_qar.get(currency.upper()) * value
             return {"qar":QAR_value}
         else:
-            return status.HTTP_404_NOT_FOUND                      
+            raise ValueError("invalid input")                  
     else:
-        return status.HTTP_400_BAD_REQUEST
+        raise ValueError("not found")
         
