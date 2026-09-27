@@ -22,6 +22,8 @@ app.add_middleware(
 
 template = Jinja2Templates(directory="templates")
 
+# auth router
+app.include_router(router=auth)
 
 
 class Area(BaseModel):
@@ -100,4 +102,5 @@ def wikipedia(data:Wikipedia):
     except ValueError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT)
     return value
-    
+
+
