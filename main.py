@@ -8,6 +8,7 @@ from services.currency_convertor import currency_convertor
 from services.isPlalindrome import isPlaindrome
 from services.wikipedia_summary import fetch_Summary
 from fastapi import status , HTTPException
+from auth.auth_service import UserRouter
 
 
 app = FastAPI()
@@ -23,7 +24,7 @@ app.add_middleware(
 template = Jinja2Templates(directory="templates")
 
 # auth router
-app.include_router(router=auth)
+app.include_router(router=UserRouter)
 
 
 class Area(BaseModel):

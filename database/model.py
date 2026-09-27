@@ -8,7 +8,7 @@ class User(Base):
     id : Mapped[int]= mapped_column(Integer,primary_key=True,index=True)
     user_name:Mapped[str] = mapped_column(String)
     password:Mapped[str] = mapped_column(String)
-    apiKeys:Mapped[str] = mapped_column(String)
+    apiKeys:Mapped[str] = mapped_column(String,nullable=True,default=None)
 
 
     
