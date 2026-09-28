@@ -1,6 +1,11 @@
+from fastapi import Depends, HTTPException , status
+from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
+from database.dependencies import db_dependency
+from database.model import User 
+from streamlit import status
 
 SECRET_KEY = "lets_learn"
 ALGORITHM = "HS256"
@@ -23,3 +28,28 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/users/token")
+
+
+def get_current_user(db:db_dependency,token: str = Depends(oauth2_scheme), ):
+    credentials_exception = HTTPException(
+        status_code= 401,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+    except JWTError:
+        raise credentials_exception
+
+    # 🟢 QUERY THE DB FOR FULL DETAILS
+    user = db.query(User).filter(User.user_name == username).first()
+    
+    if user is None:
+        raise credentials_exception
+        
+    return user # 👈 Returns the entire database object (id, email, tier, etc.)

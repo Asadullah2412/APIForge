@@ -11,6 +11,12 @@ class UserCreate(BaseModel):
     user_name:str
     password:str
 
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    username: str | None = None
 
 UserRouter = APIRouter()
 
@@ -29,4 +35,15 @@ async def signup(user_data :UserCreate,db:db_dependency):
     db.refresh(db_user)
     return db_user
 
-
+# login
+@UserRouter.post("/users/token",response_model=Token)
+def login_for_access_token(db:db_dependency,form_data:OAuth2PasswordRequestForm = Depends()):
+    user = authenticate_user(db,form_data.username,form_data.password)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    access_token = create_access_token(data={"sub":user.user_name,})
+    return {'access_token':access_token,"token_type":"bearer"}

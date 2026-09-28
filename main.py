@@ -1,5 +1,6 @@
-from fastapi import FastAPI,Request
+from fastapi import Depends, FastAPI,Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import OAuth2PasswordBearer
 from fastapi.templating import Jinja2Templates
 from  pydantic import BaseModel
 from services.calculate_area import area_rectangle
@@ -9,7 +10,9 @@ from services.isPlalindrome import isPlaindrome
 from services.wikipedia_summary import fetch_Summary
 from fastapi import status , HTTPException
 from auth.auth_service import UserRouter
-
+from auth.api_service import apiServiceRouter
+from jose import JWTError, jwt
+from auth.utils import get_current_user
 
 app = FastAPI()
 
@@ -21,11 +24,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 template = Jinja2Templates(directory="templates")
 
 # auth router
 app.include_router(router=UserRouter)
-
+# app.include_router(router=apiServiceRouter)  # update later if needed
 
 class Area(BaseModel):
     length :float
@@ -52,8 +56,10 @@ def home(request:Request):
     )
 
 
+
+
 @app.post("/calculate_area")
-def area(data:Area):
+def area(data:Area,current_user:str = Depends(get_current_user)):
     try:
         value = area_rectangle(length=data.length,width=data.width)
     except ValueError:
@@ -64,7 +70,7 @@ def area(data:Area):
 
 
 @app.post("/weather")
-def weather(data:Weather):
+def weather(data:Weather,current_user:str = Depends(get_current_user)):
     try:
          value = get_weather(city=data.city)
     except ValueError:
@@ -76,7 +82,7 @@ def weather(data:Weather):
 
 
 @app.post("/currency_convertor")
-def convertor(data:Currency):
+def convertor(data:Currency,current_user:str = Depends(get_current_user)):
     try :
         value = currency_convertor(value=data.value,currency=data.currency)
     except ValueError as e:
@@ -87,7 +93,7 @@ def convertor(data:Currency):
 
 
 @app.post("/isPalindrome")
-def palindrome(data:Palindrome):
+def palindrome(data:Palindrome,current_user:str = Depends(get_current_user)):
 
     try:
         value = isPlaindrome(word=data.string)
@@ -97,7 +103,7 @@ def palindrome(data:Palindrome):
 
 
 @app.post("/wikipedia")
-def wikipedia(data:Wikipedia):
+def wikipedia(data:Wikipedia,current_user:str = Depends(get_current_user)):
     try:
         value = fetch_Summary(topic=data.topic)
     except ValueError:
