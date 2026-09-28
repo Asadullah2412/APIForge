@@ -1,0 +1,61 @@
+2026-09-28 18:36:32,057 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 18:38:26,637 [WARNING] ratelimit 1 per 1 minute (127.0.0.1) exceeded at endpoint: /weather
+2026-09-28 18:38:56,237 [INFO] User 'TestUser1' requested weather service.
+2026-09-28 18:39:09,575 [INFO] User 'TestUser1' requested currency convertor service
+2026-09-28 18:39:20,819 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:39:39,601 [INFO] User 'TestUser1' requested wikipedia service
+2026-09-28 18:44:20,347 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 18:44:22,574 [INFO] User 'testuser2' requested area calculation.
+2026-09-28 18:44:24,586 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 18:44:25,759 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 18:44:29,253 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 18:45:29,576 [INFO] User 'testuser2' requested palindrome service
+2026-09-28 18:45:31,446 [INFO] User 'testuser2' requested palindrome service
+2026-09-28 18:45:32,988 [INFO] User 'testuser2' requested palindrome service
+2026-09-28 18:45:35,193 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:45:44,383 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:54:17,228 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:54:18,532 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:54:19,349 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:54:20,203 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:54:26,908 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:54:27,741 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:54:28,330 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:54:28,902 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:55:34,488 [INFO] User 'testuser2' requested palindrome service
+2026-09-28 18:55:46,221 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:55:47,876 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:55:48,727 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:55:51,883 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:55:54,259 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:56:46,120 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:56:47,784 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:56:49,300 [INFO] User 'TestUser1' requested palindrome service
+2026-09-28 18:56:50,749 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 18:57:05,845 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /isPalindrome
+2026-09-28 19:00:15,023 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:04:33,703 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:08:56,496 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:08:58,853 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:09:00,039 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:09:02,798 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:09:21,452 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:10:19,513 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:12:13,805 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:12:15,182 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:12:15,773 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:12:16,459 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:20,809 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:21,755 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:22,203 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:22,384 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:22,554 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:22,727 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:22,884 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:23,053 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:12:23,234 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:14:59,015 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:15:00,915 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:15:01,831 [INFO] User 'TestUser1' requested area calculation.
+2026-09-28 19:15:02,886 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area
+2026-09-28 19:15:25,653 [WARNING] ratelimit 3 per 1 minute (127.0.0.1) exceeded at endpoint: /calculate_area

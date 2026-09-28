@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException,Depends,status
+from fastapi import APIRouter, HTTPException,Depends, Request,status
 from sqlalchemy import select
 from pydantic import BaseModel
 from database.dependencies import model
@@ -37,7 +37,7 @@ async def signup(user_data :UserCreate,db:db_dependency):
 
 # login
 @UserRouter.post("/users/token",response_model=Token)
-def login_for_access_token(db:db_dependency,form_data:OAuth2PasswordRequestForm = Depends()):
+def login_for_access_token(request:Request ,db:db_dependency,form_data:OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(db,form_data.username,form_data.password)
     if not user:
         raise HTTPException(
@@ -46,4 +46,5 @@ def login_for_access_token(db:db_dependency,form_data:OAuth2PasswordRequestForm 
             headers={"WWW-Authenticate": "Bearer"},
         )
     access_token = create_access_token(data={"sub":user.user_name,})
+    # request.state.user_id = user.user_name
     return {'access_token':access_token,"token_type":"bearer"}
